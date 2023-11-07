@@ -2,7 +2,6 @@
   <div class="container">
     <Header title="Task Tracker"/>
   </div>
-
 </template>
 
 <script>
@@ -12,7 +11,13 @@ export default {
   name: 'App',
   components: {
     Header,
+  },
+  data() {
+    return {
+      tasks: []
+    }
   }
+
 }
 </script>
 
@@ -51,6 +56,10 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 </style>
