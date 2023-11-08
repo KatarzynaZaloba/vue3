@@ -1,16 +1,22 @@
 <template>
   <div :class="[task.reminder ? 'reminder' : '', 'task']">
     <h3>{{ task.text }}
-    <i class="fas fa-times"></i></h3>
+      <i @click="onDelete(task.id)" class="fas fa-times"></i></h3>
     <p>{{ task.day }}</p>
   </div>
 </template>
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Task",
   props: {
     task: Object
+  },
+  methods: {
+    onDelete(id) {
+      this.$emit("delete-task", id);
+    }
   }
 }
 </script>
@@ -19,6 +25,7 @@ export default {
 .fas {
   color: red;
 }
+
 .task {
   background: #f4f4f4;
   margin: 5px;
